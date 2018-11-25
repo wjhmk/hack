@@ -10,6 +10,19 @@
 <p>タイトル：<%= @question.title %></p>
 <p>内容：<%= @question.content %></p>
 
-
 <p><%= link_to "編集" ,  edit_question_path(@question) %></p>
 <p><%= link_to "削除" ,question_path(@question), :method => :delete %></p>
+
+
+<p>###############回答一覧#################</p>
+<% @question.answers.each do |answer|%>
+<p>============</p>
+<%= answer.content %></br>
+<%= link_to "回答編集" ,  edit_question_answer_path(@question,answer) %>
+<%= link_to "回答削除" , question_answer_path(@question,answer), :method => :delete %>
+<% end %>
+
+
+<p>###############回答する#################</p>
+<%= render 'answers/form' %>
+<p>################################</p>

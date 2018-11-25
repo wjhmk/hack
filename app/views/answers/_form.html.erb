@@ -1,0 +1,9 @@
+
+
+
+
+
+<%= form_for(@question.answers.new, url: polymorphic_path([@question, @question.answers.new])) do |f| %>
+  <p><%= f.text_area :content %></p>
+  <%= f.submit %>
+<% end %>

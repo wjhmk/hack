@@ -1,6 +1,4 @@
 class QuestionsController < ApplicationController
-    #before_actionで各メソッドを呼び出す前にメソッドを呼び出す
-      #onlyでどのメソッドで呼び出すか制限をかける
       before_action :set_question, only: [:show,:update,:edit,:destroy]
 
       def index
