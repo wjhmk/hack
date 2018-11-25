@@ -1,0 +1,9 @@
+
+
+<%= form_for(@question) do |f| %>
+ <p>タイトル</p>
+  <p><%= f.text_field :title %></p>
+  <p>質問内容</p>
+  <p><%= f.text_area :content %></p>
+  <%= f.submit %>
+<% end %>
