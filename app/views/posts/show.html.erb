@@ -1,0 +1,11 @@
+<%= @post.post_content %>
+
+<% @comments.each do |comment| %>
+  <%= comment.comment_content %>
+<% end %>
+
+<%= form_for [@post,@comment] do |f|%>
+  <%= f.text_field :comment_content %>
+  <%= f.hidden_field :post_id, :value => @post.id%>
+  <%= f.submit'送信' %>
+<% end %>
