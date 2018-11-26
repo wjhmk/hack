@@ -1,15 +1,36 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-
 <p><%= link_to "質問する" , new_question_path  %></p>
 
 
-<h1>質問一覧</h1>
-<% @questions.each do |question|%>
-#######################
-<p><%= question.id %></p>
-<p>タイトル：<%= link_to question.title , question %></p>
-<p>内容：<%= question.content %></p>
-<p>質問者id：<%= question.user_id %></p>
-<p>質問者email：<%= question.user.email %></p>
-<% end %>
+         <!-- ***** App Feature Area Start ***** -->
+         <section class="app-features-area">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 col-md-6">
+                         <div class="app-features-content">
+                             <h2>All Q&A</h2>
+                             <div class="row">
+
+                                    <% @questions.each do |question|%>
+                                             <!-- Single Feature Area -->
+                                             <div class="col-12 col-sm-6">
+                                                 <div class="single-feature-area">
+                                                     <img src="assets/img/bg-img/feature-2.png" alt="">
+                                                     <h5><%= link_to question.title , question %></h5>
+                                                     <p><%= question.content %></p>
+                                                     <!-- <p>質問者email：<%# question.user.email %></p> -->
+                                                 </div>
+                                             </div>
+                                    <% end %>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- App Feature Thumb -->
+             <div class="app-feature-side-thumb">
+                 <!-- <img src="assets/img/bg-img/feature-side.jpg" alt=""> -->
+                 <img src="assets/img/bg-img/questions.jpg" alt="">
+             </div>
+         </section>

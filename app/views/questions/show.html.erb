@@ -1,11 +1,139 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
-
-
 <p><%= link_to "質問一覧" ,questions_path  %></p>
 
 
-#######################
+<!-- ***** Pricing Plane Area Start ***** -->
+<section class="pricing-plan-area section_padding_100_70 clearfix" id="pricing">
+    <div class="container">
+
+        <div class="row no-gutters">
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">begginer</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <h4>Free</h4>
+                        </div>
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>2 E-mail Addresess</p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan active text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">Questions</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <h4><%= @question.title %></h4>
+                        </div>
+                        <p class="plan-period"><%= @user.email %></p>
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>内容：<%= @question.content %></p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">begginer</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <h4>Free</h4>
+                        </div>
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>2 E-mail Addresess</p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ***** Elements Area Start ***** -->
+<section class="elements-area section_padding_100">
+    <div class="container">
+        <div class="row">
+
+            <!-- ========== Icon Boxes ========== -->
+            <div class="col-12">
+                <div class="elements-title">
+                    <h2>Answers</h2>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="app-features-content mb-100">
+                    <div class="row">
+
+                        <% @question.answers.each do |answer|%>
+                        <!-- Single Feature Area -->
+                                <div class="col-12 col-sm-6 col-md-3">
+                                    <div class="single-feature-area">
+                                        <img src="/assets/img/bg-img/feature-2.png" alt="">
+                                        <!-- <h5>No1 in Sales!</h5> -->
+                                        <p><%= answer.content %></p>
+                                        <p><%= link_to "回答編集" ,  edit_question_answer_path(@question,answer) %></p>
+                                        <p><%= link_to "回答削除" , question_answer_path(@question,answer), :method => :delete %></p>
+                                    </div>
+                                </div>
+                        <% end %>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- #######################
 <p><%= @question.id %></p>
 <p>タイトル：<%= @question.title %></p>
 <p>内容：<%= @question.content %></p>
@@ -14,16 +142,13 @@
 <p><%= link_to "編集" ,  edit_question_path(@question) %></p>
 <p><%= link_to "削除" ,question_path(@question), :method => :delete %></p>
 
-
 <p>###############回答一覧#################</p>
 <% @question.answers.each do |answer|%>
 <p>============</p>
 <%= answer.content %></br>
 <%= link_to "回答編集" ,  edit_question_answer_path(@question,answer) %>
 <%= link_to "回答削除" , question_answer_path(@question,answer), :method => :delete %>
-<% end %>
+<% end %> -->
 
 
-<p>###############回答する#################</p>
 <%= render 'answers/form' %>
-<p>################################</p>

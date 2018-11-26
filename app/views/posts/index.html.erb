@@ -1,13 +1,41 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
 
-<% @posts.each do |post| %>
-<p>###########</p>
-<!-- <<<<<<< HEAD -->
-  <p>投稿内容:<%= link_to(post.post_content, "/posts/#{post.id}") %></p>
-  <p>投稿者id：<%= post.user_id %></p>
-  <p>投稿者email：<%= post.user.email %></p>
 
-<% end %>
 
  <%= link_to '近況報告を投稿する', new_post_path %>
+
+
+
+
+ <!-- ***** App Feature Area Start ***** -->
+ <section class="app-features-area">
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-12 col-md-6">
+                                 <div class="app-features-content">
+                                     <h2>All 近況報告</h2>
+                                     <div class="row">
+
+                                             <% @posts.each do |post| %>
+                                                     <!-- Single Feature Area -->
+                                                     <div class="col-12 col-sm-6">
+                                                         <div class="single-feature-area">
+                                                             <img src="assets/img/bg-img/feature-2.png" alt="">
+                                                             <h5><%= link_to(post.post_content, "/posts/#{post.id}") %></h5>
+                                                             <p><%= post.user.email %></p>
+                                                             <!-- <p>質問者email：<%# question.user.email %></p> -->
+                                                         </div>
+                                                     </div>
+                                            <% end %>
+
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+         <!-- App Feature Thumb -->
+         <div class="app-feature-side-thumb" >
+             <!-- <img src="assets/img/bg-img/feature-side.jpg" alt=""> -->
+             <img src="assets/img/bg-img/posts.jpg" alt="">
+         </div>
+     </section>

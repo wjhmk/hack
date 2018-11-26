@@ -1,17 +1,171 @@
-<%= @post.post_content %>
 
+
+
+
+<!-- ***** Pricing Plane Area Start ***** -->
+<section class="pricing-plan-area section_padding_100_70 clearfix" id="pricing">
+    <div class="container">
+
+        <div class="row no-gutters">
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">begginer</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <h4>Free</h4>
+                        </div>
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>2 E-mail Addresess</p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan active text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">Posts</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <!-- <h4><%#= @question.title %></h4> -->
+                        </div>
+
+                        <p class="plan-period">
+                            <% if Like.find_by(post_id: @post.id) %>
+                              <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+                                <p>いいね！しました</p>
+                              <% end %>
+                            <% else %>
+                              <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+                                <p>いいね！していません</p>
+                              <% end %>
+                            <% end %>
+                        </p>
+
+
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>内容：<%= @post.post_content %></p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Price Plan -->
+            <div class="col-12 col-md-4">
+                <!-- Package Price  -->
+                <div class="single-price-plan text-center">
+                    <!-- Package Head -->
+                    <div class="package-head">
+                        <p class="sub-title">begginer</p>
+                        <div class="ca-price d-flex justify-content-center">
+                            <h4>Free</h4>
+                        </div>
+                    </div>
+                    <!-- Package Description -->
+                    <div class="package-description">
+                        <p>2 E-mail Addresess</p>
+                    </div>
+                    <!-- Package Info -->
+                    <div class="package-info">
+                        <a href="#"><i class="fa fa-info"></i></a>
+                    </div>
+                    <!-- Order Button  -->
+                    <div class="plan-button">
+                        <a href="#">order plan</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ***** Elements Area Start ***** -->
+<section class="elements-area section_padding_100">
+    <div class="container">
+        <div class="row">
+
+            <!-- ========== Icon Boxes ========== -->
+            <div class="col-12">
+                <div class="elements-title">
+                    <h2>コメント</h2>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="app-features-content mb-100">
+                    <div class="row">
+
+                        <% @comments.each do |comment| %>
+                        <!-- Single Feature Area -->
+                                <div class="col-12 col-sm-6 col-md-3">
+                                    <div class="single-feature-area">
+                                        <img src="/assets/img/bg-img/feature-2.png" alt="">
+                                        <!-- <h5>No1 in Sales!</h5> -->
+                                        <p><%= comment.comment_content %></p>
+                                    </div>
+                                </div>
+                        <% end %>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- <h4>コメント投稿</h4>
+<%= form_for [@post,@comment] do |f|%>
+  <%= f.text_field :comment_content %>
+  <%= f.hidden_field :post_id, :value => @post.id%>
+  <%= f.submit'送信' %>
+<% end %> -->
+
+
+
+
+<%#
+<%= @post.post_content %>
 <% if Like.find_by(post_id: @post.id) %>
   <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-    <p>いいね！しました</p>
+    <!-- <p>いいね！しました</p> -->
   <% end %>
 <% else %>
   <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-    <p>いいね！していません</p>
+    <!-- <p>いいね！していません</p> -->
   <% end %>
 <% end %>
 
 
-<h1>コメント</h1>
+
+<!-- <h1>コメント</h1>
 <% @comments.each do |comment| %>
 <p>###########</p>
   <p><%= comment.comment_content %></p>
@@ -23,4 +177,49 @@
   <%= f.text_field :comment_content %>
   <%= f.hidden_field :post_id, :value => @post.id%>
   <%= f.submit'送信' %>
-<% end %>
+<% end %> -->
+
+
+
+
+<!-- ***** Contact Area Start ***** -->
+<section class="contact-area section_padding_100">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- Contact Form Area -->
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <h2>回答を送る</h2>
+                    <%= form_for [@post,@comment] do |f|%>
+                          <div class="row">
+                              <!-- <div class="col-12 col-md-6">
+                                  <input type="text" class="form-control" id="name" placeholder="Name">
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <input type="email" class="form-control" id="email" placeholder="E-mail">
+                              </div>
+                              <div class="col-12">
+                                  <input type="text" class="form-control" id="subject" placeholder="Subject">
+                              </div> -->
+
+                              <div class="col-12">
+                                  <%= f.text_area :comment_content, :class => "form-control", :id => "message", :cols => "30", :rows  =>"10" %>
+                                  <%= f.hidden_field :post_id, :value => @post.id%>
+                                  <!-- <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea> -->
+                              </div>
+                              <%# <%= f.submit %>
+                              <button type="submit">send</button>
+
+                          </div>
+
+                    <% end %>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

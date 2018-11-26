@@ -7,23 +7,333 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="/assets/css/css/responsive.css" rel="stylesheet">
+
+
   </head>
 
   <body>
 
 
-        <% if user_signed_in? %>
-          <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-          <%= link_to '近況報告', posts_path %>
-          <%= link_to 'Q&A', questions_path %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-        <% else %>
-            <%= link_to 'sign in', new_user_session_path %>
-            <%= link_to 'sign up', new_user_registration_path %>
-        <% end %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <%= yield %>
+        <!-- ***** Preloader Start ***** -->
+        <div id="preloader">
+            <div class="selene-preloader"></div>
+        </div>
+
+        <!-- ***** Header Area Start ***** -->
+        <header class="header_area animated">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Menu Area Start -->
+                    <div class="col-12">
+                        <div class="menu_area">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <!-- Logo -->
+                                <a class="navbar-brand" href="#">Selene</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#selene-navbar" aria-controls="selene-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                                <!-- Menu Area -->
+                                <div class="collapse navbar-collapse" id="selene-navbar">
+                                    <ul class="navbar-nav ml-auto" id="nav">
+
+                                              <% if user_signed_in? %>
+                                                <li class="nav-item"><%= link_to '近況報告', posts_path , class: "nav-link" %></li>
+                                                <li class="nav-item"><%= link_to 'Q&A', questions_path , class: "nav-link" %></li>
+                                                <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,  class: "nav-link" %></li>
+                                              <% else %>
+                                                  <li class="nav-item"><%= link_to 'sign in', new_user_session_path, class: "nav-link"  %></li>
+                                                  <li class="nav-item"><%= link_to 'sign up', new_user_registration_path , class: "nav-link" %></li>
+                                              <% end %>
+
+                                              <li class="nav-item"><%= link_to 'このサイトについて', new_user_registration_path , class: "nav-link" %></li>
+
+                                    </ul>
+                                    <!-- Search btn -->
+                                    <div class="search-button d-lg-none">
+                                        <a href="#" class="search-btn"><img src="assets/img/core-img/search-icon.png" alt="Search"></a>
+                                    </div>
+                                </div>
+                                <!-- Search btn -->
+                                <div class="search-button d-none d-lg-block">
+                                    <a href="#" class="search-btn"><img src="assets/img/core-img/search-icon.png" alt="Search"></a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <%= yield %>
+        <!-- ***** Header Area End ***** -->
+<%#
+        <!-- ***** Search Form Area Start ***** -->
+        <div class="search-form-area">
+            <!-- Remove btn -->
+            <div class="remove-btn">
+                <i class="fa fa-times"></i>
+            </div>
+            <!-- Search Form -->
+            <form action="#" method="post">
+                <input type="search" name="search" id="search" placeholder="Type keywords &amp; hit enter">
+                <button type="submit" class="d-none"><img src="assets/img/core-img/search-icon.png" alt="Search"></button>
+            </form>
+        </div>
+        <!-- ***** Search Form Area End ***** -->
+
+        <!-- ***** Wellcome Area Start ***** -->
+        <section class="welcome_area clearfix" id="home">
+
+            <!-- Shape -->
+            <div class="welcome-bg-shape">
+                <img class="welcome-first-shape" src="img/core-img/welcome-bg-1.png" alt="">
+                <img class="welcome-second-shape" src="img/core-img/welcome-bg-2.png" alt="">
+            </div>
+
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-md-7">
+                        <div class="welcome-content">
+                            <h2><span>SELENE</span> THE APP</h2>
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta.</h4>
+                        </div>
+                        <div class="app-download-area">
+                            <div class="app-download-btn active">
+                                <!-- Google Store Btn -->
+                                <a href="#"><i class="fa fa-android"></i><p class="mb-0"><span>available on</span> Google Store</p></a>
+                            </div>
+                            <div class="app-download-btn">
+                                <!-- Apple Store Btn -->
+                                <a href="#"><i class="fa fa-apple"></i><p class="mb-0"><span>available on</span> Apple Store</p></a>
+                            </div>
+                        </div>
+                        <!-- Scroll btn -->
+                        <div class="scroll-down-btn">
+                            <a href="#about" class="scrollDown">Scroll Down <i class="fa fa-angle-double-down scroll-down" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Device -->
+            <div class="welcome-mobile-device text-right">
+                <img src="assets/img/bg-img/wel-dev-1.png" alt="">
+                <img src="assets/img/bg-img/wel-dev-2.png" alt="">
+            </div>
+        </section>
+        <!-- ***** Wellcome Area End ***** -->
+
+        <!-- ***** About App Area Start ***** -->
+        <div class="about-app-area" id="about">
+
+            <!-- Shape -->
+            <div class="about-us-bg-shape">
+                <img src="assets/img/core-img/about-bg.png" alt="">
+            </div>
+
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- About App Slider -->
+                    <div class="col-12 col-md-7">
+                        <div class="about-apps-slider owl-carousel">
+                            <!-- Single Slide -->
+                            <div class="app-single-slide">
+                                <img src="assets/img/bg-img/slide-1.jpg" alt="">
+                            </div>
+                            <!-- Single Slide -->
+                            <div class="app-single-slide">
+                                <img src="assets/img/bg-img/slide-2.jpg" alt="">
+                            </div>
+                            <!-- Single Slide -->
+                            <div class="app-single-slide">
+                                <img src="assets/img/bg-img/slide-3.jpg" alt="">
+                            </div>
+                            <!-- Single Slide -->
+                            <div class="app-single-slide">
+                                <img src="assets/img/bg-img/slide-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About App Content -->
+                    <div class="col-12 col-md-5">
+                        <div class="about-app-content">
+                            <h2>Mobile ready</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta.Lorem ipsum dolor sit amet.</p>
+                            <div class="app-feature-icon d-flex">
+                                <!-- Single App Feature Icon  -->
+                                <div class="single-app-feature-icon d-flex align-items-center justify-content-center">
+                                    <img src="assets/img/bg-img/icon-1.png" alt="">
+                                </div>
+                                <!-- Single App Feature Icon  -->
+                                <div class="single-app-feature-icon d-flex align-items-center justify-content-center">
+                                    <img src="assets/img/bg-img/icon-2.png" alt="">
+                                </div>
+                                <!-- Single App Feature Icon  -->
+                                <div class="single-app-feature-icon d-flex align-items-center justify-content-center">
+                                    <img src="assets/img/bg-img/icon-3.png" alt="">
+                                </div>
+                                <!-- Single App Feature Icon  -->
+                                <div class="single-app-feature-icon d-flex align-items-center justify-content-center">
+                                    <img src="assets/img/bg-img/icon-4.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** About App Area End ***** -->
+
+        <!-- ***** App FAQ Area Start ***** -->
+        <section class="app-faq-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="app-faq-content">
+                            <h2>An app for Each <br>&amp; Everyone</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta.Lorem ipsum dolor sit amet.</p>
+                            <!-- Accordian Area -->
+                            <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+                                <!-- single accordian area start -->
+                                <div class="panel single-accordion">
+                                    <h6><a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Curabitur pulvinar vel augue sit amet vestibulum
+                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        </a></h6>
+                                    <div id="collapseOne" class="accordion-content collapse">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis laudantium, deserunt esse, aspernatur, laborum ipsa necessitatibus dolor architecto sint minima suscipit. Blanditiis perspiciatis animi ipsam, officia modi aperiam aut temporibus.</p>
+                                    </div>
+                                </div>
+                                <!-- single accordian area start -->
+                                <div class="panel single-accordion">
+                                    <h6>
+                                        <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                            </a>
+                                    </h6>
+                                    <div id="collapseTwo" class="accordion-content collapse">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur fugit odio, voluptatem dolor possimus maxime sint debitis id vel numquam, porro aperiam eos distinctio optio perspiciatis officia, quisquam repellendus tenetur!</p>
+                                    </div>
+                                </div>
+                                <!-- single accordian area start -->
+                                <div class="panel single-accordion">
+                                    <h6>
+                                        <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Donec scelerisque ante id efficitur pharetra
+                                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseThree" class="accordion-content collapse">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus repudiandae nam ad corrupti illo pariatur inventore ratione reiciendis quidem soluta exercitationem, incidunt, expedita, cupiditate perspiciatis debitis temporibus qui. Culpa, facere.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Users Map Area -->
+            <div class="app-users-map-area">
+                <img src="assets/img/bg-img/world-map.png" alt="">
+                <div class="map-pins">
+                    <!-- Single Pin -->
+                    <div class="single-map-pin"></div>
+                    <!-- Single Pin -->
+                    <div class="single-map-pin"></div>
+                    <!-- Single Pin -->
+                    <div class="single-map-pin"></div>
+                    <!-- Single Pin -->
+                    <div class="single-map-pin"></div>
+                </div>
+            </div>
+        </section>
+        <!-- ***** App FAQ Area End ***** --> %>
+
+
+            <!-- App Feature Thumb -->
+            <!-- <div class="app-feature-side-thumb">
+                <img src="assets/img/bg-img/feature-side.jpg" alt="">
+            </div>
+        </section> -->
+        <!-- ***** App Feature Area End ***** -->
+
+        <!-- ***** Pricing Plane Area End ***** -->
+
+        <!-- ***** Footer Area Start ***** -->
+        <footer class="footer-area text-center clearfix">
+            <!-- Shape 1 -->
+            <div class="footer-bg-shape">
+                <img src="assets/img/core-img/footer-bg.png" alt="Footer Shape">
+            </div>
+            <!-- Shape 2 -->
+            <div class="footer-bg-shape-2">
+                <img src="assets/img/core-img/price-table.png" alt="">
+            </div>
+
+            <div class="container h-100">
+                <div class="row h-100 justify-content-center">
+                    <div class="col-12 col-md-8">
+                        <div class="footer-content">
+                            <h2>Purchase App</h2>
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. </h4>
+                        </div>
+                        <div class="app-download-area">
+                            <div class="app-download-btn active">
+                                <!-- Google Store Btn -->
+                                <a href="#"><i class="fa fa-android"></i><p class="mb-0"><span>available on</span> Google Store</p></a>
+                            </div>
+                            <div class="app-download-btn">
+                                <!-- Apple Store Btn -->
+                                <a href="#"><i class="fa fa-apple"></i><p class="mb-0"><span>available on</span> Apple Store</p></a>
+                            </div>
+                        </div>
+                        <div class="footer-social-info">
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                        <!-- Foooter Text-->
+                        <div class="copyright-text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- ***** Footer Area End ***** -->
+<!-- <script src="/assets/js/jquery-1.11.1.min.js"></script> -->
+        <!-- jQuery-2.2.4 js -->
+        <script src="/assets/js/jquery-2.2.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="/assets/js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <!-- All Plugins js -->
+        <script src="/assets/js/plugins.js"></script>
+        <!-- Active js -->
+        <script src="/assets/js/active.js"></script>
+
   </body>
 </html>
