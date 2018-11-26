@@ -1,9 +1,6 @@
 
 
 
- <%= link_to '近況報告を投稿する', new_post_path %>
-
-
 
 
  <!-- ***** App Feature Area Start ***** -->
@@ -12,7 +9,10 @@
                          <div class="row">
                              <div class="col-12 col-md-6">
                                  <div class="app-features-content">
-                                     <h2>All 近況報告</h2>
+                                     <h2>
+                                         All 近況報告
+                                             <p><%= link_to '近況報告を投稿する', new_post_path %></p> 
+                                     </h2>
                                      <div class="row">
 
                                              <% @posts.each do |post| %>

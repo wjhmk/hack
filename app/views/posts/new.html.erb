@@ -1,4 +1,44 @@
-<%= form_tag("/posts") do %>
-  <textarea name="post_content"></textarea>
-  <input type="submit" value="投稿">
-<% end %>
+<!-- ***** Contact Area Start ***** -->
+<section class="contact-area section_padding_100">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- Contact Form Area -->
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <h2>投稿する</h2>
+
+                    <%= form_tag("/posts") do %>
+                          <div class="row">
+                              <!-- <div class="col-12 col-md-6">
+                                  <input type="text" class="form-control" id="name" placeholder="Name">
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <input type="email" class="form-control" id="email" placeholder="E-mail">
+                              </div> -->
+
+                              <div class="col-12">
+                                  <textarea name="post_content" class="form-control id="message" placeholder="投稿内容を入力してください"></textarea>
+                                  <!-- <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea> -->
+                              </div>
+                              <%# <%= f.submit %>
+                              <button type="submit">send</button>
+
+                          </div>
+
+                    <% end %>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<%# <%= form_tag("/posts") do %>
+  <!-- <textarea name="post_content"></textarea> -->
+  <!-- <input type="submit" value="投稿"> -->
+<%# end %>

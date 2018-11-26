@@ -60,7 +60,7 @@
                     </div>
                     <!-- Package Description -->
                     <div class="package-description">
-                        <p>内容：<%= @post.post_content %></p>
+                        <p><%= @post.post_content %></p>
                     </div>
                     <!-- Package Info -->
                     <div class="package-info">
@@ -191,7 +191,7 @@
             <!-- Contact Form Area -->
             <div class="col-12">
                 <div class="contact-form-area">
-                    <h2>回答を送る</h2>
+                    <h2>コメントを送る</h2>
                     <%= form_for [@post,@comment] do |f|%>
                           <div class="row">
                               <!-- <div class="col-12 col-md-6">
@@ -205,7 +205,7 @@
                               </div> -->
 
                               <div class="col-12">
-                                  <%= f.text_area :comment_content, :class => "form-control", :id => "message", :cols => "30", :rows  =>"10" %>
+                                  <%= f.text_area :comment_content, :class => "form-control", :id => "message", :cols => "30", :rows  =>"10" ,:placeholder=>"コメントを入力してください" %>
                                   <%= f.hidden_field :post_id, :value => @post.id%>
                                   <!-- <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea> -->
                               </div>
