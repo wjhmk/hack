@@ -2,5 +2,10 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-  <%= link_to(post.post_content, "/posts/#{post.id}") %>
+<p>###########</p>
+  <p>投稿内容:<%= link_to(post.post_content, "/posts/#{post.id}") %></p>
+  <p>投稿者id：<%= post.user_id %></p>
+  <p>投稿者email：<%= post.user.email %></p>
 <% end %>
+
+ <%= link_to '近況報告を投稿する', new_post_path %>

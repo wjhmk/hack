@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!, only: [:new]
   def index
     @posts = Post.all
   end
@@ -10,20 +11,20 @@ class PostsController < ApplicationController
   end
 
   def new
+      @question = current_user.questions.new
   end
 
   def create
-    @post = Post.new(
+    @post = current_user.posts.new(
         post_title: params[:post_title],
         post_content: params[:post_content]
     )
     if @post.save
-      redirect_to("/posts/index")
+      redirect_to posts_path
     end
 
 
   end
-
 
 
 end
