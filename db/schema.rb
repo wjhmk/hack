@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# <<<<<<< mocchi
 ActiveRecord::Schema.define(version: 2018_11_26_003433) do
-=======
-# ActiveRecord::Schema.define(version: 2018_11_25_225951) do
-# >>>>>>> master
 
   create_table "answers", force: :cascade do |t|
     t.string "content"
@@ -64,13 +60,6 @@ ActiveRecord::Schema.define(version: 2018_11_26_003433) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "replies", force: :cascade do |t|
-    t.text "reply_content"
-    t.integer "comment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

@@ -10,12 +10,17 @@
   <% end %>
 <% end %>
 
+
+<h1>コメント</h1>
 <% @comments.each do |comment| %>
+<p>###########</p>
   <p><%= comment.comment_content %></p>
 <% end %>
 
 
 
+
+<h4>コメント投稿</h4>
 <%= form_for [@post,@comment] do |f|%>
   <%= f.text_field :comment_content %>
   <%= f.hidden_field :post_id, :value => @post.id%>

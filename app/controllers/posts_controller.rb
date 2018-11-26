@@ -18,7 +18,7 @@ class PostsController < ApplicationController
         post_content: params[:post_content]
     )
     if @post.save
-      redirect_to("/posts/index")
+      redirect_to posts_path
     end
 
 
