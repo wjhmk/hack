@@ -9,6 +9,7 @@
 <p><%= @question.id %></p>
 <p>タイトル：<%= @question.title %></p>
 <p>内容：<%= @question.content %></p>
+<p>投稿者：<%= @user.email %></p>
 
 <p><%= link_to "編集" ,  edit_question_path(@question) %></p>
 <p><%= link_to "削除" ,question_path(@question), :method => :delete %></p>
