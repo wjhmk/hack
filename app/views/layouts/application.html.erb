@@ -11,16 +11,14 @@
 
   <body>
 
-
         <% if user_signed_in? %>
           <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
           <%= link_to '近況報告', posts_path %>
-          <%= link_to '質問する', questions_path %>
+          <%= link_to 'Q&A', questions_path %>
         <% else %>
             <%= link_to 'sign in', new_user_session_path %>
             <%= link_to 'sign up', new_user_registration_path %>
         <% end %>
-
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
