@@ -1,0 +1,23 @@
+<%= @post.post_content %>
+
+<% if Like.find_by(post_id: @post.id) %>
+  <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+    <p>いいね！しました</p>
+  <% end %>
+<% else %>
+  <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+    <p>いいね！していません</p>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.comment_content %></p>
+<% end %>
+
+
+
+<%= form_for [@post,@comment] do |f|%>
+  <%= f.text_field :comment_content %>
+  <%= f.hidden_field :post_id, :value => @post.id%>
+  <%= f.submit'送信' %>
+<% end %>
