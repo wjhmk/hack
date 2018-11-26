@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-  get 'posts/index'
+# <<<<<<< mocchi
+#   get 'comments/index'
+#   get 'posts/index'
+=======
+  devise_for :users
+# >>>>>>> master
   root :to => 'questions#index'
 
 
