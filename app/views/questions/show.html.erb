@@ -43,7 +43,10 @@
                         <div class="ca-price d-flex justify-content-center">
                             <h4><%= @question.title %></h4>
                         </div>
-                        <p class="plan-period"><%= @user.email %></p>
+                        <p class="plan-period">
+                            <%= @user.email %>
+                            <p><%= link_to "編集" ,  edit_question_path(@question) %>/<%= link_to "削除" ,question_path(@question), :method => :delete %></p>
+                        </p>
                     </div>
                     <!-- Package Description -->
                     <div class="package-description">
